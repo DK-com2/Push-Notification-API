@@ -37,7 +37,7 @@ cp .env.example .env
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_NAME=location_tracker
-DATABASE_USER=dkcom
+DATABASE_USER=username_here
 DATABASE_PASSWORD=your_actual_password
 FLASK_ENV=development
 FLASK_DEBUG=True
