@@ -2,6 +2,7 @@ from flask import Flask
 import logging
 from config import Config
 from routes.token_routes import token_bp
+from routes.location_routes import location_bp
 from database import db
 
 def create_app():
@@ -20,6 +21,7 @@ def create_app():
     )
     
     app.register_blueprint(token_bp)
+    app.register_blueprint(location_bp)
     
     @app.teardown_appcontext
     def close_db(error):
@@ -30,11 +32,13 @@ def create_app():
     @app.route('/', methods=['GET'])
     def root():
         return {
-            "message": "Push Notification Token Registration API",
+            "message": "Push Notification Token Registration API & Location Sharing API",
             "status": "running",
             "endpoints": {
                 "register_token": "POST /api/register-token",
-                "health_check": "GET /api/health"
+                "health_check": "GET /api/health",
+                "upload_points": "POST /points",
+                "get_points": "GET /points"
             }
         }
     

@@ -13,6 +13,13 @@ class Config:
     FLASK_ENV = os.getenv('FLASK_ENV')
     FLASK_DEBUG = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
     
+    # Supabase設定
+    SUPABASE_URL = os.getenv('SUPABASE_URL')
+    SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+    
+    # JWT設定
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    
     @property
     def DATABASE_URL(self):
         return f"postgresql://{self.DATABASE_USER}:{self.DATABASE_PASSWORD}@{self.DATABASE_HOST}:{self.DATABASE_PORT}/{self.DATABASE_NAME}"

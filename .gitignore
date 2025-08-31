@@ -69,3 +69,7 @@ dmyp.json
 
 # Claude Code
 .claude/
+
+# テストファイル（機密情報含有の可能性）
+test_location_api.ipynb
+*test*.ipynb
