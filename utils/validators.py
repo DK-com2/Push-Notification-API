@@ -65,31 +65,34 @@ def validate_device_info(device_info):
     return True
 
 def validate_register_token_request(data):
+    """
+    FCMトークン登録リクエストのバリデーション
+
+    注意: user_idはJWTトークンから取得するため、ここではバリデーションしません
+    """
     errors = []
-    
-    try:
-        validate_user_id(data.get('user_id'))
-    except ValidationError as e:
-        errors.append(f"user_id: {e.message}")
-    
+
+    # user_idのバリデーションを削除（JWTから取得するため）
+    # リクエストボディにuser_idが含まれていても無視されます
+
     try:
         validate_device_token(data.get('device_token'))
     except ValidationError as e:
         errors.append(f"device_token: {e.message}")
-    
+
     try:
         validate_platform(data.get('platform'))
     except ValidationError as e:
         errors.append(f"platform: {e.message}")
-    
+
     try:
         validate_device_info(data.get('device_info'))
     except ValidationError as e:
         errors.append(f"device_info: {e.message}")
-    
+
     if errors:
         raise ValidationError("; ".join(errors))
-    
+
     return True
 
 # 位置情報バリデーション関数
