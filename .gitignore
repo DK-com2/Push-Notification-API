@@ -73,3 +73,7 @@ dmyp.json
 # テストファイル（機密情報含有の可能性）
 test_location_api.ipynb
 *test*.ipynb
+
+# Firebase秘密鍵（絶対にコミットしない）
+*firebase-adminsdk*.json
+secrets/
