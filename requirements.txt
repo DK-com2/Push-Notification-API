@@ -5,3 +5,4 @@ Werkzeug==2.3.7
 python-jose[cryptography]==3.3.0
 supabase==2.18.1
 python-dateutil==2.8.2
+firebase-admin==6.5.0
